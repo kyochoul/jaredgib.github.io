@@ -13,11 +13,33 @@
     var chart = c3.generate({
       bindto: '#chart',
       data: {
+        x: 'x',
         columns: [
-          ['data1'],
+            ['x', 'car', 'poop', 'track', 'mom', 'wow', 'dude!'],
+            ['data1', 30, 50, 10, 40, 100, 85],
         ]
-      }
-    });
+    },
+    axis: {
+        x: {
+            type: 'categories',
+            tick: {
+                centered: true,
+                outer: false,
+                
+            },
+            padding: {
+                left: 0,
+                right: 0,
+            },
+        
+        },
+        y: {
+            min: 0,
+            max: 100,
+            padding: 0
+        }
+    }
+});
 
     // when we get a message from the app, display it on the page
     // message should be a JSON string of a list of numbers
@@ -25,10 +47,33 @@
       try {
         var messageList = JSON.parse(message);
         chart.load({
-          columns: [
-          	['x'].concat(messageList.x),
+          data: {
+        x: 'x',
+        columns: [
+            ['x'].concat(messageList.x),
             ['data1'].concat(messageList.data),
-          ]
+        ]
+    },
+    axis: {
+        x: {
+            type: 'categories',
+            tick: {
+                centered: true,
+                outer: false,
+                
+            },
+            padding: {
+                left: 0,
+                right: 0,
+            },
+        
+        },
+        y: {
+            min: 0,
+            max: 100,
+            padding: 0
+        }
+    }
         });        
       } catch (e) {
         console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
