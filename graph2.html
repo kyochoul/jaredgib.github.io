@@ -47,9 +47,7 @@
       try {
         var messageList = JSON.parse(message);
         chart.load({
-          data: {
-        x: 'x',
-        columns: [
+          columns: [
             ['x'].concat(messageList.x),
             ['data1'].concat(messageList.data),
         ]
