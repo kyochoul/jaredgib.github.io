@@ -50,28 +50,8 @@
           columns: [
             ['x'].concat(messageList.x),
             ['data1'].concat(messageList.data),
-        ]
-    },
-    axis: {
-        x: {
-            type: 'categories',
-            tick: {
-                centered: true,
-                outer: false,
-                
-            },
-            padding: {
-                left: 0,
-                right: 0,
-            },
+          ]
         
-        },
-        y: {
-            min: 0,
-            max: 100,
-            padding: 0
-        }
-    }
         });        
       } catch (e) {
         console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
