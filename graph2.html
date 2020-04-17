@@ -50,7 +50,7 @@
         x: 'x',
         columns: [
             ['x'],
-            ['Tracked Phenomenon'],
+            ['data1'],
             ['trendLine'],
         ]
     },
@@ -82,7 +82,7 @@
       tooltip: {
     grouped: false,
     position: (data, width, height, element) => {
-      if (data[0].id === 'Tracked Phenomenon'){    // <- change this value to suit your needs
+      if (data[0].id === 'data1'){    // <- change this value to suit your needs
           return { top: 40, left: 0 };
       }
       return { top: -1000, left: 0 };
@@ -100,15 +100,13 @@ chart.legend.show(['trendLine']);
         chart.load({
           columns: [
             ['x'].concat(messageList.x),
-            ['Tracked Phenomenon'].concat(messageList.data),
+            ['data1'].concat(messageList.data),
             ['trendLine'].concat(messageList.trend),
-                    ]
+                    ],
+          names: {
+            data1: messageList.title,
+                  }
                  });    
-      
-        setTimeout(function () {
-         chart.data.names({data1: messageList.title});
-            }, 1000);
-        
       } catch (e) {
         console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
       }
