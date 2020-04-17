@@ -102,9 +102,13 @@ chart.legend.show(['trendLine']);
             ['x'].concat(messageList.x),
             ['Tracked Phenomenon'].concat(messageList.data),
             ['trendLine'].concat(messageList.trend),
-          ]
+                    ]
+                 });    
+      
+        setTimeout(function () {
+         chart.data.names({data1: messageList.title});
+            }, 1000);
         
-        });        
       } catch (e) {
         console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
       }
