@@ -23,7 +23,10 @@
     <span id="messageDisplay"></span>
     <div id="chart"></div>
     <script>
-    var chart = c3.generate({
+    var chart = c3.generate({size: {
+        height: 200,
+        width: 300
+    },
       bindto: '#chart',
       data: {
         x: 'x',
