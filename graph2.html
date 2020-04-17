@@ -1,7 +1,7 @@
 
 <html>
   <head>
-    Chart Title Could Go Here!
+   
     <style>
        #chart 
       .c3-circles-data2 { 
@@ -30,7 +30,7 @@
         columns: [
             ['x'],
             ['data1'],
-            ['data2'],
+            ['trendLine'],
         ]
     },
     axis: {
@@ -54,21 +54,24 @@
             max: 100,
             padding: 0
         }
+    },
+      legend: {
+      show: false
     }
 });
-
+chart.legend.show(['trendLine']);
     // when we get a message from the app, display it on the page
     // message should be a JSON string of a list of numbers
     //I think there is a way to change the legend titles. I dont want the trend title to show at all. EVER
     ThunkableWebviewerExtension.receiveMessage(function(message) {
       try {
         var messageList = JSON.parse(message);
-        document.getElementById('messageDisplay').innerHTML = messageList.title;
+        document.getElementById('messageDisplay').innerHTML = "This chart is for " + messageList.title;
         chart.load({
           columns: [
             ['x'].concat(messageList.x),
             ['data1'].concat(messageList.data),
-            ['data2'].concat(messageList.trend),
+            ['trendLine'].concat(messageList.trend),
           ]
         
         });        
