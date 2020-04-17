@@ -18,7 +18,8 @@
     <script src="https://cdn.jsdelivr.net/npm/c3@0.7.15/c3.min.js"></script>
   </head>
   <body>
-    //span tags may break chart
+    <!-- messageDisplay comes from the thunkable app -->
+
     <span id="messageDisplay"></span>
     <div id="chart"></div>
     <script>
@@ -62,7 +63,7 @@
     ThunkableWebviewerExtension.receiveMessage(function(message) {
       try {
         var messageList = JSON.parse(message);
-        document.getElementById('messageDisplay').innerHTML = message.title;
+        document.getElementById('messageDisplay').innerHTML = messageList.title;
         chart.load({
           columns: [
             ['x'].concat(messageList.x),
