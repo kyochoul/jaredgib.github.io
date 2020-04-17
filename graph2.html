@@ -95,7 +95,9 @@ chart.legend.show(['trendLine']);
     //I think there is a way to change the legend titles. I dont want the trend title to show at all. EVER
     ThunkableWebviewerExtension.receiveMessage(function(message) {
       try {
+        
         var messageList = JSON.parse(message);
+        var titleName = messageList.title
         document.getElementById('messageDisplay').innerHTML = "This chart is for " + messageList.title;
         chart.load({
           columns: [
@@ -104,7 +106,7 @@ chart.legend.show(['trendLine']);
             ['trendLine'].concat(messageList.trend),
                     ],
           names: {
-            data1: messageList.title,
+            data1: titleName
                   }
                  });    
       } catch (e) {
