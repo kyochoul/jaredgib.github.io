@@ -33,7 +33,7 @@
         x: 'x',
         columns: [
             ['x'],
-            ['Behavior'],
+            ['Tracked Phenomenon'],
             ['trendLine'],
         ]
     },
@@ -65,7 +65,7 @@
       tooltip: {
     grouped: false,
     position: (data, width, height, element) => {
-      if (data[0].id === 'Behavior'){    // <- change this value to suit your needs
+      if (data[0].id === 'Tracked Phenomenon'){    // <- change this value to suit your needs
           return { top: 40, left: 0 };
       }
       return { top: -1000, left: 0 };
@@ -83,7 +83,7 @@ chart.legend.show(['trendLine']);
         chart.load({
           columns: [
             ['x'].concat(messageList.x),
-            ['Behavior'].concat(messageList.data),
+            ['Tracked Phenomenon'].concat(messageList.data),
             ['trendLine'].concat(messageList.trend),
           ]
         
