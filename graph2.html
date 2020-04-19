@@ -46,15 +46,15 @@
     <script>
     var chart = c3.generate({
       bindto: '#chart',
-      data: {
+       data: {
         x: 'x',
         columns: [
-            ['x'],
-            ['data1'],
-            ['trendLine'],
-        ],
-      regions: {'trendLine': [{'style':'dashed'}] 
+            ['x', 'car', 'toy','house','what', 'no', 'yeah', 'right', 'shit on you', 'wyh', 'haha', 'cra'],
+            ['data1',1,2,3,3,3,3,3,3,4],
+            ['trendLine',5,4,3,3,3,3,3,2,1],
+        ],  regions: {'trendLine': [{'style':'dashed'}] 
                } ,
+    },
       point: { r: function (d) {return d.id === 'data1' ? 0 : 2.5;}
               },
     axis: {
@@ -66,7 +66,7 @@
                 rotate: -45,
                 multiline: false,
                 culling: {
-                    max: 5 // the number of tick texts will be adjusted to less than this value
+                    max: 6 // the number of tick texts will be adjusted to less than this value
                 },
   
             },
@@ -78,7 +78,7 @@
         },
         y: {
             min: 0,
-            max: 100,
+            max: 10,
             padding: 0
         }
     },
