@@ -1,4 +1,3 @@
-
 <html>
   <head>
    
@@ -46,17 +45,18 @@
     <script>
     var chart = c3.generate({
       bindto: '#chart',
-       data: {
+      data: {
         x: 'x',
         columns: [
             ['x'],
             ['data1'],
             ['trendLine'],
-        ],  regions: {'trendLine': [{'style':'dashed'}] 
-               } ,
+        ]
     },
-      point: { r: function (d) {return d.id === 'data1' ? 0 : 2.5;}
-              },
+      regions: {
+            'trendLine': [{'style':'dashed'}] // currently 'dashed' style only
+            
+        },
     axis: {
         x: {
             type: 'categories',
@@ -64,14 +64,10 @@
                 centered: true,
                 outer: false,
                 rotate: -45,
-<<<<<<< HEAD
                 multiline: false,
                 culling: {
-                    max: 6 // the number of tick texts will be adjusted to less than this value
+                    max: 5 // the number of tick texts will be adjusted to less than this value
                 },
-=======
-                multiline: false
->>>>>>> parent of b37c9dc... Update graph2.html
   
             },
             padding: {
@@ -100,7 +96,7 @@
     }
   }
 });
-
+chart.legend.show(['trendLine']);
     // when we get a message from the app, display it on the page
     // message should be a JSON string of a list of numbers
     //I think there is a way to change the legend titles. I dont want the trend title to show at all. EVER
