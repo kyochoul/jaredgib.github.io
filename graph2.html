@@ -2,16 +2,26 @@
   <head>
    
     <style>
-      html, body { 
-          height: 100%; 
-          margin: 0; }
+      html, body {
+          height: 100%;
+                  }
+
+      html {
+         display: table;
+          margin: auto;
+          }
+
+      body {
+     display: table-cell;
+      vertical-align: middle;
+        }
       div { 
         height: 80%; 
         width: 100%; 
         }
-      h6 {
-        text-align: center;
-        }
+      div.a {
+         text-align: center;
+      }
        #chart 
       .c3-circles-trendLine { 
           display: none;   
@@ -40,7 +50,7 @@
   <body>
     <!-- messageDisplay comes from the thunkable app -->
 
-   <h6> <span id="messageDisplay"></span></h6>
+  <div class="a"> <span id="messageDisplay"></span></div>
     <div id="chart"></div>
     <script>
     var chart = c3.generate({
