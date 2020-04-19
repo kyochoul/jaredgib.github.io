@@ -2,7 +2,7 @@
   <head>
    
     <style>
-    html,
+  html,
   body {
     height: 100%;
     margin: 0;
@@ -36,11 +36,14 @@
 
   .c3-axis-y text {
     font-size: 10px;
+    /* change the size of the fonts */
   }
 
   .c3-axis-x text {
     font-size: 10px;
+    /* change the size of the fonts */
   }
+
       
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,67 +58,157 @@
     <div id="chart"></div></p>
     <script>
     var chart = c3.generate({
-      bindto: '#chart',
-   
-      data: {
-        x: 'x',
-        columns: [
-            ['x'],
-            ['data1'],
-            ['trendLine'],
-        ]
-    },
-     
-    axis: {
-        x: { 
-        		height: 60,
-            type: 'categories',
-            tick: {
-                centered: true,
-                outer: false,
-                rotate: -45,
-                multiline: false,
-                culling: {
-                    max: 5 // the number of tick texts will be adjusted to less than this value
-                },
-  
-            },
-            padding: {
-                left: 0,
-                right: 0,
-                
-            }
-           
+  bindto: '#chart',
+  data: {
+    x: 'x',
+    columns: [
+      ['x', '3/2 @ 3:15', '3/3 @ 3:15', '3/4 @ 3:15', '3/5 @ 3:15'],
+      ['data1', 10, 20, 30, 40],
+      ['trendLine', 70, 60, 50, 40],
+    ]
+  },
+point: {
+r: 1,
+focus : { expand: { r:3}}
+},
+  axis: {
+    x: {
+      height: 60,
+      type: 'categories',
+      tick: {
+        centered: true,
+        outer: false,
+        rotate: -45,
+        multiline: true,
+        multilineMax: 2,
+        culling: {
+          max: 5 // the number of tick texts will be adjusted to less than this value
         },
-        y: {
-            min: 0,
-            max: 100,
-            padding: 0,
-            label: {
-     					 text: 'Accuracy',
-      					position: 'outer-middle'
-    }
-        }
-    },
-      legend: {
-      show: false
-     
-    },
-      tooltip: {
-        format: {
-          
-          name(name, ratio, id, index) { return ''; },
-          value(value, ratio, id, index) { return value; }
-        },
-        grouped: false,
-        position: (data, width, height, element) => {
-      if (data[0].id === 'data1'){    // <- change this value to suit your needs
-          return { top: 40, left: 0 };
-      }
-      return { top: -1000, left: 0 };
-    }
+
       },
+      padding: {
+        left: 0,
+        right: 0,
+
+      }
+
+    },
+    y: {
+      min: 0,
+      max: 100,
+      padding: 0,
+      label: {
+        text: 'Accuracy',
+        position: 'outer-middle'
+      }
+    }
+  },
+  legend: {
+    show: false
+
+  },
+  tooltip: {
+    format: {
+
+      name(name, ratio, id, index) {
+        return '';
+      },
+      value(value, ratio, id, index) {
+        return value;
+      }
+    },
+    grouped: false,
+    position: (data, width, height, element) => {
+      if (data[0].id === 'data1') { // <- change this value to suit your needs
+        return {
+          top: 40,
+          left: 0
+        };
+      }
+      return {
+        top: -1000,
+        left: 0
+      };
+    }
+  },
 });
+
+     var chart = c3.generate({
+  bindto: '#chart',
+  data: {
+    x: 'x',
+    columns: [
+      ['x', '3/2 @ 3:15', '3/3 @ 3:15', '3/4 @ 3:15', '3/5 @ 3:15'],
+      ['data1', 10, 20, 30, 40],
+      ['trendLine', 70, 60, 50, 40],
+    ]
+  },
+point: {
+r: 1,
+focus : { expand: { r:3}}
+},
+  axis: {
+    x: {
+      height: 60,
+      type: 'categories',
+      tick: {
+        centered: true,
+        outer: false,
+        rotate: -45,
+        multiline: true,
+        multilineMax: 2,
+        culling: {
+          max: 5 // the number of tick texts will be adjusted to less than this value
+        },
+
+      },
+      padding: {
+        left: 0,
+        right: 0,
+
+      }
+
+    },
+    y: {
+      min: 0,
+      max: 100,
+      padding: 0,
+      label: {
+        text: 'Accuracy',
+        position: 'outer-middle'
+      }
+    }
+  },
+  legend: {
+    show: false
+
+  },
+  tooltip: {
+    format: {
+
+      name(name, ratio, id, index) {
+        return '';
+      },
+      value(value, ratio, id, index) {
+        return value;
+      }
+    },
+    grouped: false,
+    position: (data, width, height, element) => {
+      if (data[0].id === 'data1') { // <- change this value to suit your needs
+        return {
+          top: 40,
+          left: 0
+        };
+      }
+      return {
+        top: -1000,
+        left: 0
+      };
+    }
+  },
+});
+
 
     // when we get a message from the app, display it on the page
     // message should be a JSON string of a list of numbers
