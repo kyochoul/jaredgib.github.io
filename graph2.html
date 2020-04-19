@@ -53,11 +53,10 @@
             ['data1'],
             ['trendLine'],
         ],
-      regions: {
-            'trendLine': [{'style':'dashed'}] // currently 'dashed' style only
-            
-        },
-    },
+      regions: {'trendLine': [{'style':'dashed'}] 
+               } ,
+      point: { r: function (d) {return d.id === 'data1' ? 0 : 2.5;}
+              },
     axis: {
         x: {
             type: 'categories',
