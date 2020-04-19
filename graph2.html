@@ -2,37 +2,45 @@
   <head>
    
     <style>
-      html, body {
-          height: 100%;
-          margin: 0; }
-      div { 
-        height: 100%; 
-        width: 100%; 
-        }
-      span.messageDisplay {
-         text-align: center;
-         font-size:xx-small; 
-      }
-       #chart 
-      .c3-circles-trendLine { 
-          display: none;   
-      }
-       .c3-line-trendLine{
-          stroke-dasharray: 5,5;
-      }
-      .c3-axis .tick line {
-        display: none;
-      }
-      .chart{
-          width: 100%;
-          height: 90%;
-      }
-      .c3-axis-y text {
-         font-size: 10px; /* change the size of the fonts */
-       }
-      .c3-axis-x text {
-          font-size: 10px; /* change the size of the fonts */
-        }
+    html,
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
+  div {
+    height: 80%;
+    width: 100%;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  #chart .c3-circles-trendLine {
+    display: none;
+  }
+
+  .c3-line-trendLine {
+    stroke-dasharray: 5, 5;
+  }
+
+  .c3-axis .tick line {
+    display: none;
+  }
+
+  .chart {
+    width: 100%;
+    height: 90%;
+  }
+
+  .c3-axis-y text {
+    font-size: 10px;
+  }
+
+  .c3-axis-x text {
+    font-size: 10px;
+  }
       
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,6 +56,7 @@
     <script>
     var chart = c3.generate({
       bindto: '#chart',
+   
       data: {
         x: 'x',
         columns: [
@@ -56,18 +65,17 @@
             ['trendLine'],
         ]
     },
-      regions: {
-            'trendLine': [{'style':'dashed'}] // currently 'dashed' style only
-            
-        },
+     
     axis: {
-        x: {
+        x: { 
+        		height: 60,
             type: 'categories',
             tick: {
                 centered: true,
                 outer: false,
                 rotate: -45,
-                multiline: false,
+                multiline: true,
+     						multilineMax: 2,
                 culling: {
                     max: 5 // the number of tick texts will be adjusted to less than this value
                 },
@@ -76,17 +84,23 @@
             padding: {
                 left: 0,
                 right: 0,
+                
             }
            
         },
         y: {
             min: 0,
             max: 100,
-            padding: 0
+            padding: 0,
+            label: {
+     					 text: 'Accuracy',
+      					position: 'outer-middle'
+    }
         }
     },
       legend: {
       show: false
+     
     },
       tooltip: {
         format: {
