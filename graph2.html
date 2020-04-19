@@ -86,7 +86,11 @@
       show: false
     },
       tooltip: {
-        name: function (name, ratio, id, index) { return ""; },
+        format: {
+          
+          name(name, ratio, id, index) { return ''; },
+          value(value, ratio, id, index) { return value; }
+        },
         grouped: false,
         position: (data, width, height, element) => {
       if (data[0].id === 'data1'){    // <- change this value to suit your needs
@@ -94,7 +98,7 @@
       }
       return { top: -1000, left: 0 };
     }
-  }
+      },
 });
 chart.legend.show(['trendLine']);
     // when we get a message from the app, display it on the page
