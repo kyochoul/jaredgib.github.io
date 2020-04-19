@@ -54,6 +54,10 @@
             ['trendLine'],
         ]
     },
+      regions: {
+            'trendLine': [{'style':'dashed'}] // currently 'dashed' style only
+            
+        },
     axis: {
         x: {
             type: 'categories',
@@ -63,8 +67,8 @@
                 rotate: -45,
                 multiline: false,
                 culling: {
-                    max: 10 // the number of tick texts will be adjusted to less than this value
-                }
+                    max: 5 // the number of tick texts will be adjusted to less than this value
+                },
   
             },
             padding: {
@@ -83,8 +87,9 @@
       show: false
     },
       tooltip: {
-    grouped: false,
-    position: (data, width, height, element) => {
+        name: function (name, ratio, id, index) { return ""; },
+        grouped: false,
+        position: (data, width, height, element) => {
       if (data[0].id === 'data1'){    // <- change this value to suit your needs
           return { top: 40, left: 0 };
       }
