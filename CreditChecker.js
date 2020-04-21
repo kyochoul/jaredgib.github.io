@@ -58,7 +58,7 @@ function validateCred(inputArray) {
 
 function findInvalidCards(input) {
     let returnArray = [];
-
+    
     for (let i = 0; i < input.length; i++) {
         if (validateCred(input[i]) != true) {
             returnArray.push(input[i]);
@@ -68,13 +68,13 @@ function findInvalidCards(input) {
 }
 
 
-
+//create unique list of card companies to contact
 const idInvalidCardCompanies = invalidArray => {
     let returnArray = [];
-    let tempIndexOf = 0;
     for (let i = 0; i < invalidArray.length; i++) {
         switch (invalidArray[i][0]) {
             case 3:
+                //.indexof() checks the array to see if sometihng is in it already. -1 means no. otherwise returns the index
                 if (returnArray.indexOf('AMX') === -1) {
                     returnArray.push('AMX');
                     break;
