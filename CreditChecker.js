@@ -66,5 +66,50 @@ function findInvalidCards(input) {
 
     } return returnArray;
 }
-console.log('There are ' + findInvalidCards(batch).length + ' invalid cards in this list');
 
+
+
+const idInvalidCardCompanies = invalidArray => {
+    let returnArray = [];
+    let tempIndexOf = 0;
+    for (let i = 0; i < invalidArray.length; i++) {
+        switch (invalidArray[i][0]) {
+            case 3:
+                if (returnArray.indexOf('AMX') === -1) {
+                    returnArray.push('AMX');
+                    break;
+                } else {
+                    break;
+                }
+            case 4:
+                if (returnArray.indexOf('VISA') === -1) {
+                    returnArray.push('VISA');
+                    break;
+                } else {
+                    break;
+                }
+            case 5:
+                if (returnArray.indexOf('MST') === -1) {
+                    returnArray.push('MST');
+                    break;
+                } else {
+                    break;
+                }
+            case 6:
+                if (returnArray.indexOf('DISC') === -1) {
+                    returnArray.push('DISC');
+                    break;
+                } else {
+                    break;
+                }
+            default:
+                text: 'Company not found.'
+        }
+
+    }
+    return returnArray;
+
+}
+console.log('There are ' + findInvalidCards(batch).length + ' invalid cards in this list');
+console.log(findInvalidCards(batch));
+console.log(idInvalidCardCompanies(findInvalidCards(batch)));
