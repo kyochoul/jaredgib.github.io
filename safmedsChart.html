@@ -63,9 +63,9 @@
   data: {
     x: 'x',
     columns: [
-      ['x', 'car', 'toy', 'house', 'poop', 'dude'],
-      ['Corrects', 24, 20, 30, 50, 10],
-      ['Incorrects', 10, 1, 5, 5, 10],
+      ['x'],
+      ['Corrects'],
+      ['Incorrects'],
     ]
   },
   point: {
@@ -80,14 +80,14 @@
     x: {
       height: 60,
       type: 'categories',
-      
+      max: 100,
       tick: {
         centered: true,
         outer: false,
         rotate: -45,
         multiline: false,
         culling: {
-          max: 5 // the number of tick texts will be adjusted to less than this value
+          max: 10 // the number of tick texts will be adjusted to less than this value
         },
       },
       padding: {
@@ -141,13 +141,12 @@
 
 // when we get a message from the app, display it on the page
 // message should be a JSON string of a list of numbers
-//I think there is a way to change the legend titles. I dont want the trend title to show at all. EVER
 ThunkableWebviewerExtension.receiveMessage(function(message) {
   try {
 
     var messageList = JSON.parse(message);
     var titleName = messageList.title
-    document.getElementById('messageDisplay').innerHTML = "This chart is for " + messageList.title;
+    document.getElementById('messageDisplay').innerHTML = "This chart is for SAFMEDS " + messageList.title;
     chart.load({
       columns: [
         ['x'].concat(messageList.x),
