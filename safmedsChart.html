@@ -151,40 +151,14 @@ ThunkableWebviewerExtension.receiveMessage(function(message) {
     chart.load({
       columns: [
         ['x'].concat(messageList.x),
-        ['Corrects'].concat(messageList.data),
-        ['Incorrects'].concat(messageList.trend),
+        ['Corrects'].concat(messageList.corrects),
+        ['Incorrects'].concat(messageList.incorrects),
       ]
     });
   } catch (e) {
     console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
   }
 });
-
-
-
-    // when we get a message from the app, display it on the page
-    // message should be a JSON string of a list of numbers
-    //I think there is a way to change the legend titles. I dont want the trend title to show at all. EVER
-    ThunkableWebviewerExtension.receiveMessage(function(message) {
-      try {
-        
-        var messageList = JSON.parse(message);
-        var titleName = messageList.title
-        document.getElementById('messageDisplay').innerHTML = "This chart is for " + messageList.title;
-        chart.load({
-          columns: [
-            ['x'].concat(messageList.x),
-            ['data1'].concat(messageList.data),
-            ['trendLine'].concat(messageList.trend),
-                    ],
-          names: {
-            data1: titleName
-                  }
-                 });    
-      } catch (e) {
-        console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
-      }
-    });
     </script>
   </body>
 </html>
