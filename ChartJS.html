@@ -53,11 +53,18 @@
             try {
 
                 var messageList = JSON.parse(message);
-                function updateConfigByMutating(chart) {
-                    chart.data.datasets.data = messageList.data;
+
+                function removeData(chart) {
+                    chart.data.labels.pop();
+                    chart.data.datasets.forEach((dataset) => {
+                        dataset.data.pop();
+                    });
                     chart.update();
                 }
-                updateConfigByMutating(myChart);
+                
+                removeData(myChart)
+
+
             } catch (e) {
                 console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
             }
