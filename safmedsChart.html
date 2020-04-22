@@ -63,9 +63,9 @@
   data: {
     x: 'x',
     columns: [
-      ['x'],
-      ['Corrects'],
-      ['Incorrects'],
+      ['x', 'car', 'toy', 'house', 'poop', 'dude'],
+      ['Corrects', 24, 20, 30, 50, 10],
+      ['Incorrects', 10, 1, 5, 5, 10],
     ]
   },
   point: {
@@ -87,7 +87,7 @@
         rotate: -45,
         multiline: false,
         culling: {
-          max: 10 // the number of tick texts will be adjusted to less than this value
+          max: 5 // the number of tick texts will be adjusted to less than this value
         },
       },
       padding: {
