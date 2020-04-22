@@ -52,7 +52,7 @@
     ThunkableWebviewerExtension.receiveMessage(function(message) {
       try {
         var messageList = JSON.parse(message);
-        myChart.data.datasets[0].data = messageList.data
+        myChart.data.datasets[0].data = messageList.data;
         //finally update chart var:
         myChart.update();
         ;        
