@@ -52,11 +52,13 @@
     // message should be a JSON string of a list of numbers
     ThunkableWebviewerExtension.receiveMessage(function(message) {
       try {
+
         var messageList = JSON.parse(message);
         function updateConfigByMutating(chart) {
-            myChart.data.datasets.data = messageList.data;
+            chart.data.datasets.data = messageList.data;
             chart.update();
-            }      
+            } 
+            updateConfigByMutating(myChart);     
       } catch (e) {
         console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
       }
