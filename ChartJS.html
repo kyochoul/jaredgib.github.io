@@ -9,7 +9,9 @@
 </head>
 
 <body>
+    <div class="chart-container" style="position: relative; height:40vh; width:80vw"></div>
     <canvas id="myChart"></canvas>
+    </div>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
@@ -79,7 +81,7 @@
                 myChart.data.datasets[1].data = messageList.incorrects;
                 myChart.data.labels = messageList.xvalues;
                 myChart.update();
-                
+
 
             } catch (e) {
                 console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
