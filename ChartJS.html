@@ -67,25 +67,24 @@
                         ticks: {
                             fontSize: 30,
                         }
-                    }]
-                },
-                yAxes: [{
-                    type: 'logarithmic',
+                    }],
+                    yAxes: [{
+                        type: 'logarithmic',
 
-                    ticks: {
-                        fontSize: 30,
-                        autoSkip: false,
-                        min: .001,
-                        max: 1000,
-                        callback: function (value, index, values) {
-                            if (value == .001 || value == .01 || value == .1 || value == 1 || value == 10 || value == 100 || value == 1000) {
-                                return value + '/min';
-                            }
-                        },
-                    }
-                }],
+                        ticks: {
+                            fontSize: 30,
+                            autoSkip: false,
+                            min: .001,
+                            max: 1000,
+                            callback: function (value, index, values) {
+                                if (value == .001 || value == .01 || value == .1 || value == 1 || value == 10 || value == 100 || value == 1000) {
+                                    return value + '/min';
+                                }
+                            },
+                        }
+                    }],
+                },
             },
-        },
         });
 
 
