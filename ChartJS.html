@@ -3,7 +3,8 @@
 <head>
     <title>This is an example of using Chart.JS with ThunkableX!</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
+    <script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js"
+        type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/c3@0.7.15/c3.css" rel="stylesheet">
 </head>
 
@@ -12,41 +13,58 @@
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                labels: ['January', 'February', 'March', 'April', 'May'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
+                    label: 'Corrects',
+                    data: [10, 60, 70, 180, 190],
+                    borderWidth: 1,
+                    pointBackground: 'green',
+                    fill: false,
+                    borderColor: 'green'
+                },
+                {
+                    label: 'Incorrects',
+                    data: [.10, 20, 30, 40, 50],
+                    fill: false,
+                    borderColor: 'red',
+                    pointStyle: 'star',
+                    pointRadius: 4,
                     borderWidth: 1
-                }]
+                }
+                ]
             },
             options: {
+                title: {
+                    display: true,
+                    text: 'BEHAVIORNAMEGOESHERE',
+                    fontColor: 'Black',
+                    fontSize: 32,
+                },
+                legend: {
+                    position: 'bottom',
+                },
                 scales: {
+
                     yAxes: [{
+                        type: 'logarithmic',
+
                         ticks: {
-                            beginAtZero: true
+                            autoSkip: false,
+                            min: .001,
+                            max: 1000,
+                            callback: function (value, index, values) {
+                                if (value == .001 || value == .01 || value == .1 || value == 1 || value == 10 || value == 100 || value == 1000) {
+                                    return value + ' per minute';
+                                }
+                            },
                         }
-                    }]
-                }
-            }
+                    }],
+                },
+            },
         });
+
 
 
         // when we get a message from the app, display it on the page
@@ -55,11 +73,11 @@
             try {
 
                 var messageList = JSON.parse(message);
-                 
-                 myChart.data.datasets[0].data = messageList.corrects; 
-                 myChart.data.datasets[1].data = messageList.incorrects;
-                 myChart.data.labels = messageList.xvalues;
-                 myChart.update();
+
+                myChart.data.datasets[0].data = messageList.corrects;
+                myChart.data.datasets[1].data = messageList.incorrects;
+                myChart.data.labels = messageList.xvalues;
+                myChart.update();
 
             } catch (e) {
                 console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
