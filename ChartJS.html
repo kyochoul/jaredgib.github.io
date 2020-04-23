@@ -38,9 +38,9 @@
             options: {
                 title: {
                     display: true,
-                    text: 'BEHAVIORNAMEGOESHERE',
+                    text: 'Chart Title',
                     fontColor: 'Black',
-                    fontSize: 32,
+                    fontSize: 12,
                 },
                 legend: {
                     position: 'bottom',
@@ -74,10 +74,12 @@
 
                 var messageList = JSON.parse(message);
 
+                myChart.options.title.text = "new title";
                 myChart.data.datasets[0].data = messageList.corrects;
                 myChart.data.datasets[1].data = messageList.incorrects;
                 myChart.data.labels = messageList.xvalues;
                 myChart.update();
+                
 
             } catch (e) {
                 console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
