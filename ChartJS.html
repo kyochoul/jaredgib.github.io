@@ -18,7 +18,6 @@
             height: 80%;
             width: 90%;
         }
-
     </style>
 </head>
 
@@ -52,7 +51,7 @@
                 ]
             },
             options: {
-                responsive:true,
+                responsive: true,
                 maintainAspectRatio: false,
                 title: {
                     display: true,
@@ -64,24 +63,29 @@
                     position: 'bottom',
                 },
                 scales: {
-
-                    yAxes: [{
-                        type: 'logarithmic',
-
+                    xAxes: [{
                         ticks: {
                             fontSize: 30,
-                            autoSkip: false,
-                            min: .001,
-                            max: 1000,
-                            callback: function (value, index, values) {
-                                if (value == .001 || value == .01 || value == .1 || value == 1 || value == 10 || value == 100 || value == 1000) {
-                                    return value + '/min';
-                                }
-                            },
                         }
-                    }],
+                    }]
                 },
+                yAxes: [{
+                    type: 'logarithmic',
+
+                    ticks: {
+                        fontSize: 30,
+                        autoSkip: false,
+                        min: .001,
+                        max: 1000,
+                        callback: function (value, index, values) {
+                            if (value == .001 || value == .01 || value == .1 || value == 1 || value == 10 || value == 100 || value == 1000) {
+                                return value + '/min';
+                            }
+                        },
+                    }
+                }],
             },
+        },
         });
 
 
