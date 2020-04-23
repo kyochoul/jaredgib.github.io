@@ -57,8 +57,8 @@
                 var messageList = JSON.parse(message);
                  
                  myChart.data.datasets[0].data = messageList.corrects; 
-                 myChart.data.datasets[1].data = messageList.incorrects
-                 MyChart.data.labels[0] = messageList.labels
+                 myChart.data.datasets[1].data = messageList.incorrects;
+                 MyChart.data.labels[0] = messageList.labels;
                  myChart.update();
 
             } catch (e) {
