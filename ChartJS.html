@@ -11,13 +11,14 @@
         html,
         body {
             height: 100%;
-            margin: 0;
+            margin: 1;
         }
 
-        div {
+        .chart-container {
             height: 80%;
-            width: 100%;
+            width: 90%;
         }
+
     </style>
 </head>
 
@@ -51,6 +52,8 @@
                 ]
             },
             options: {
+                responsive:true,
+                maintainAspectRatio: false,
                 title: {
                     display: true,
                     text: 'Chart Title',
