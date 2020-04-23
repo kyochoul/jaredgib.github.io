@@ -30,10 +30,10 @@
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May'],
+                labels: ['January', 'February', 'March', 'April', 'May','house','home','apartment','trailer'],
                 datasets: [{
                     label: 'Corrects',
-                    data: [10, 60, 70, 180, 190],
+                    data: [10, 60, 70, 180, 190, 250, 350, 450, 550],
                     fill: false,
                     borderColor: 'green',
                     pointStyle: 'triangle',
@@ -43,7 +43,7 @@
                 },
                 {
                     label: 'Incorrects',
-                    data: [.10, 20, 30, 40, 50],
+                    data: [.10, 20, 30, 40, 50, .05, .5, 3, 8],
                     fill: false,
                     borderColor: 'red',
                     pointStyle: 'star',
