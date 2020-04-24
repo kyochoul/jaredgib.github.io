@@ -2,47 +2,47 @@ let story = 'Last weekend, I took literally the most beautiful bike ride of my l
 
 let overusedWords = ['really', 'very', 'basically'];
 
-let unnecessaryWords = ['extremely', 'literally', 'actually' ];
+let unnecessaryWords = ['extremely', 'literally', 'actually'];
 
 let storyWords = story.split(' ');
 //console.log(storyWords.length);
 
 
 
-let betterWords = storyWords.filter(function(word){
-  return !unnecessaryWords.includes(word)
+let betterWords = storyWords.filter(function (word) {
+    return !unnecessaryWords.includes(word)
 });
 
 //console.log(betterWords);
 
-let values =[0,0,0];
+let values = [0, 0, 0];
 
 for (word of storyWords) {
-  if (word === overusedWords[0]){
-    values[0] += 1
-} else if (word === overusedWords[1]){
-    values[1] += 1
-} else if (word === overusedWords[2]){
-    values[2] += 1
-}
+    if (word === overusedWords[0]) {
+        values[0] += 1
+    } else if (word === overusedWords[1]) {
+        values[1] += 1
+    } else if (word === overusedWords[2]) {
+        values[2] += 1
+    }
 };
 
 //console.log(values)
 let wordCount = 0;
 const numOfSentences = function () {
-  for (word of betterWords){
-    if (word.includes('!')){
-      wordCount += 1
-    } else if (word.includes('.')){
-      wordCount += 1
+    for (word of betterWords) {
+        if (word.includes('!')) {
+            wordCount += 1
+        } else if (word.includes('.')) {
+            wordCount += 1
+        }
     }
-  }
-  return wordCount;
+    return wordCount;
 };
 
- for(let i = 0; i < values.length; i++){
-   console.log('The word ' + overusedWords[i] + ' was used ' + values[i] + ' times')
-  };
+for (let i = 0; i < values.length; i++) {
+    console.log('The word ' + overusedWords[i] + ' was used ' + values[i] + ' times')
+};
 
 console.log('\nThere are a total of ' + betterWords.length + ' words in the cleaned up paragraph of "better words".')
 
