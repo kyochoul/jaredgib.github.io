@@ -55,7 +55,8 @@
 
 <body>
   <!-- messageDisplay comes from the thunkable app -->
-  <p style="text-align: center;"><span id="messageDisplay"></span>
+  <p style="text-align: center;">
+    <!-- <span id="messageDisplay"></span> Taking this out for now because my webApp will show this information in a prettier way-->
     <div id="chart"></div>
   </p>
   <script>
@@ -147,17 +148,23 @@
 
         var messageList = JSON.parse(message);
         var titleName = messageList.title
-        document.getElementById('messageDisplay').innerHTML = "This chart is for " + messageList.title;
-        chart.load({
-          columns: [
-            ['x'].concat(messageList.x),
-            ['data1'].concat(messageList.data),
-            ['trendLine'].concat(messageList.trend),
-          ],
-          names: {
-            data1: titleName
-          }
+        // document.getElementById('messageDisplay').innerHTML = "This chart is for " + messageList.title;
+        chart.unload({
+          ids: ['x', 'data1', 'trendLine']
         });
+        setTimeout(function () {
+          chart.load({
+            columns: [
+              ['x'].concat(messageList.x),
+              ['data1'].concat(messageList.data),
+              ['trendLine'].concat(messageList.trend),
+            ],
+            names: {
+              data1: titleName
+            }
+          });
+        }, 1000);
+
       } catch (e) {
         console.error("An error occurred. Message probably wasn't a JSON string of an array of numbers");
       }
