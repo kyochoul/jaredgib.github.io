@@ -53,8 +53,8 @@
     <script src="https://cdn.jsdelivr.net/npm/c3@0.7.15/c3.min.js"></script>
   </head>
   <body>
-    <!-- messageDisplay comes from the thunkable app -->
-   <p style="text-align: center;"><span id="messageDisplay"></span>
+                                        <!-- messageDisplay comes from the thunkable app -->
+                            <!--    <p style="text-align: center;"><span id="messageDisplay"></span>    -->
     <div id="chart"></div></p>
     <script>
   var chart = c3.generate({
@@ -138,15 +138,15 @@
 });
 
 
-    // when we get a message from the app, display it on the page
-    // message should be a JSON string of a list of numbers
-    //I think there is a way to change the legend titles. I dont want the trend title to show at all. EVER
+                              // when we get a message from the app, display it on the page
+                              // message should be a JSON string of a list of numbers
+                              //I think there is a way to change the legend titles. I dont want the trend title to show at all. EVER
     ThunkableWebviewerExtension.receiveMessage(function(message) {
       try {
         
         var messageList = JSON.parse(message);
         var titleName = messageList.title
-        document.getElementById('messageDisplay').innerHTML = "This chart is for " + messageList.title;
+ //                          document.getElementById('messageDisplay').innerHTML = "This chart is for " + messageList.title;
         chart.load({
           columns: [
             ['x'].concat(messageList.x),

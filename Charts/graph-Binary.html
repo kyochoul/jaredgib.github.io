@@ -34,15 +34,16 @@
     height: 90%;
   }
 
+/* change the size of the fonts 
   .c3-axis-y text {
     font-size: 10px;
-    /* change the size of the fonts */
+    
   }
 
   .c3-axis-x text {
     font-size: 10px;
-    /* change the size of the fonts */
   }
+    change the size of the fonts */
 
       
     </style>
@@ -54,7 +55,7 @@
   </head>
   <body>
     <!-- messageDisplay comes from the thunkable app -->
-   <p style="text-align: center;"><span id="messageDisplay"></span>
+  <!-- <p style="text-align: center;"><span id="messageDisplay"></span> -->
     <div id="chart"></div></p>
     <script>
   var chart = c3.generate({
@@ -68,16 +69,16 @@
     ]
   },
   point: {
-    r: 1,
+    r: 5,
     focus: {
       expand: {
-        r: 3
+        r: 10
       }
     }
   },
   axis: {
     x: {
-      height: 60,
+    //  height: 60,
       type: 'categories',
       tick: {
         centered: true,
@@ -102,7 +103,7 @@
       max: 1,
       padding: 0,
       label: {
-        text: 'Accuracy',
+        text: 'Did\'t occur vs Did occur',
         position: 'outer-middle'
       }
     }
@@ -118,7 +119,11 @@
         return '';
       },
       value(value, ratio, id, index) {
-        return value;
+        if (value === 1) {
+          return 'Did occur';
+        } else if (value === 0){
+          return 'Did not occur';
+        }
       }
     },
     grouped: false,
@@ -146,7 +151,7 @@
         
         var messageList = JSON.parse(message);
         var titleName = messageList.title
-        document.getElementById('messageDisplay').innerHTML = "This chart is for " + messageList.title;
+       // document.getElementById('messageDisplay').innerHTML = "This chart is for " + messageList.title;
         chart.load({
           columns: [
             ['x'].concat(messageList.x),
