@@ -114,7 +114,7 @@
 
                 var messageList = JSON.parse(message);
 
-                myChart.options.title.text = messageList.title;
+                
                 myChart.data.datasets[0].data = messageList.confirmed;
                 myChart.data.datasets[1].data = messageList.deaths;
                 myChart.data.datasets[2].data = messageList.recovered;
