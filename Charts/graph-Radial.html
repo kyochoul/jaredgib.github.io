@@ -108,7 +108,9 @@
                 chart.load({
                     columns: [
                         ['data1'].concat(messageList.data),
-                    ]
+                    ],
+                    names: {
+                        data1: titleName
                     }
                 });
             } catch (e) {
